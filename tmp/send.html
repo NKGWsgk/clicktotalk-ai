@@ -1,9 +1,0 @@
-<!doctype html><meta charset="utf-8"><title>send</title>
-<p id="s">sending…</p>
-<script>
-// Temporary: hands the review screenshot to the App Store Connect tab that opened this page.
-fetch('iap-review.png').then(r => r.blob()).then(b => {
-  opener.postMessage({ kind: 'iap-img', blob: b }, 'https://appstoreconnect.apple.com');
-  document.getElementById('s').textContent = 'sent ' + b.size;
-}).catch(e => { document.getElementById('s').textContent = 'error ' + e; });
-</script>
